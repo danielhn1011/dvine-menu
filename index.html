@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú D'Vine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="contenedor-principal">
+        <div class="encabezado">
+            <img src="logo.jpeg" alt="Logo D'Vine" class="logo">
+            <h1>D'Vine</h1>
+        </div>
+
+        <h3 class="titulo-categorias">Categorías</h3>
+
+       <button class="btn-categoria">Frappés</button>
+        <div class="panel-categoria">
+            
+            <div class="producto-item">
+                <h4>Frappés de Leche</h4>
+                <div class="opciones">
+                    <label>Sabor:</label>
+                    <select class="opcion-detalle">
+                        <option value="Chocolate" data-precio="45">Chocolate ($45)</option>
+                        <option value="Oreo" data-precio="45">Oreo ($45)</option>
+                        <option value="Nescafé" data-precio="45">Nescafé ($45)</option>
+                        <option value="Fresa" data-precio="45">Fresa ($45)</option>
+                        <option value="Mazapán" data-precio="45">Mazapán ($45)</option>
+                        <option value="Frutos Rojos" data-precio="50">Frutos Rojos ($50)</option>
+                        <option value="Gansito" data-precio="50">Gansito ($50)</option>
+                        <option value="Pingüino" data-precio="50">Pingüino ($50)</option>
+                        <option value="Chocorrol" data-precio="50">Chocorrol ($50)</option>
+                    </select>
+                    <label>Cantidad:</label>
+                    <input type="number" class="cantidad-producto" value="1" min="1">
+                    <button type="button" class="btn-agregar" onclick="agregarItem(this, 'Frappé de Leche', 0)">Agregar al carrito</button>
+                </div>
+            </div>
+
+            <div class="producto-item">
+                <h4>Frappés de Agua</h4>
+                <div class="opciones">
+                    <label>Sabor:</label>
+                    <select class="opcion-detalle">
+                        <option value="Mango" data-precio="40">Mango ($40)</option>
+                        <option value="Limón" data-precio="40">Limón ($40)</option>
+                        <option value="Tamarindo" data-precio="40">Tamarindo ($40)</option>
+                        <option value="ICEE Cereza" data-precio="50">ICEE Cereza ($50)</option>
+                        <option value="ICEE Mora Azul" data-precio="50">ICEE Mora Azul ($50)</option>
+                    </select>
+                    <label>Cantidad:</label>
+                    <input type="number" class="cantidad-producto" value="1" min="1">
+                    <button type="button" class="btn-agregar" onclick="agregarItem(this, 'Frappé de Agua', 0)">Agregar al carrito</button>
+                </div>
+            </div>
+
+        </div>
+        <button class="btn-categoria">Dorilocos</button>
+<div class="panel-categoria">
+    <div class="producto-item">
+        <h4>Dorilocos Preparados</h4>
+        <div class="opciones">
+            <label>Tamaño:</label>
+            <select class="opcion-detalle" id="select-tamano-dorilocos" onchange="actualizarSaboresDorilocos()">
+                <option value="Chico" data-precio="30">Chico ($30)</option>
+                <option value="Mediano" data-precio="40">Mediano ($40)</option>
+            </select>
+
+            <label>Fritura Base:</label>
+            <select class="opcion-detalle" id="select-sabor-dorilocos">
+                </select>
+
+            <label>Ingredientes (selecciona los que desees):</label>
+            <div class="grupo-checkbox">
+                <label><input type="checkbox" class="opcion-check" value="Zanahoria"> Zanahoria</label>
+                <label><input type="checkbox" class="opcion-check" value="Pepino"> Pepino</label>
+                <label><input type="checkbox" class="opcion-check" value="Jícama"> Jícama</label>
+                <label><input type="checkbox" class="opcion-check" value="Cueritos"> Cueritos</label>
+                <label><input type="checkbox" class="opcion-check" value="Chamoy"> Chamoy</label>
+                <label><input type="checkbox" class="opcion-check" value="Tajín"> Tajín</label>
+            </div>
+
+            <label>Gomitas (puedes elegir varias):</label>
+            <div class="grupo-checkbox">
+                <label><input type="checkbox" class="opcion-check" value="Panditas"> Panditas</label>
+                <label><input type="checkbox" class="opcion-check" value="Panditas Enchiladas"> Panditas Enchiladas</label>
+                <label><input type="checkbox" class="opcion-check" value="Gusanitos"> Gusanitos</label>
+                <label><input type="checkbox" class="opcion-check" value="Aros de Durazno"> Aros de Durazno</label>
+                <label><input type="checkbox" class="opcion-check" value="Frutitas"> Frutitas</label>
+            </div>
+
+            <label>Cacahuates:</label>
+            <select class="opcion-detalle">
+                <option value="Japonés">Japonés</option>
+                <option value="Flamin Hot">Flamin Hot</option>
+                <option value="Sin Cacahuates">Sin Cacahuates</option>
+            </select>
+
+            <label>Miguelito:</label>
+            <select class="opcion-detalle">
+                <option value="Original">Original</option>
+                <option value="Mora Azul">Mora Azul</option>
+                <option value="Sandía">Sandía</option>
+                <option value="Uva">Uva</option>
+                <option value="Mango">Mango</option>
+                <option value="Limón">Limón</option>
+                <option value="Sin Miguelito">Sin Miguelito</option>
+            </select>
+
+            <label>Salsa:</label>
+            <select class="opcion-detalle">
+                <option value="Valentina">Valentina</option>
+                <option value="Botanera">Botanera</option>
+                <option value="Ambas Salsas">Ambas Salsas</option>
+                <option value="Sin Salsa">Sin Salsa</option>
+            </select>
+
+            <label>Cantidad:</label>
+            <input type="number" class="cantidad-producto" value="1" min="1">
+            
+            <button type="button" class="btn-agregar" onclick="agregarItem(this, 'Dorilocos', 0)">Agregar al carrito</button>
+        </div>
+    </div>
+</div>
+<button class="btn-categoria">Papas Locas</button>
+        <div class="panel-categoria">
+            
+            <div class="producto-item">
+                <h4>Papas Locas Normales ($30)</h4>
+                
+                <div class="opciones">
+                    <label>Sabor de Papas:</label>
+                    <select class="opcion-detalle">
+                        <option value="Naturales">Naturales</option>
+                        <option value="Limón">Limón</option>
+                        <option value="Queso">Queso</option>
+                        <option value="Extremas">Extremas</option>
+                        </select>
+
+                    <label>Ingredientes (selecciona los que desees):</label>
+                    <div class="grupo-checkbox">
+                        <label><input type="checkbox" class="opcion-check" value="Salsa Maggi"> Salsa Maggi</label>
+                        <label><input type="checkbox" class="opcion-check" value="Limón"> Limón</label>
+                        <label><input type="checkbox" class="opcion-check" value="Tajín"> Tajín</label>
+                    </div>
+
+                    <label>Salsa a elegir:</label>
+                    <select class="opcion-detalle">
+                        <option value="Valentina">Valentina</option>
+                        <option value="Botanera">Botanera</option>
+                        <option value="Ambas Salsas">Ambas Salsas</option>
+                        <option value="Sin Salsa">Sin Salsa</option>
+                    </select>
+
+                    <label>Cantidad:</label>
+                    <input type="number" class="cantidad-producto" value="1" min="1">
+                    
+                    <button type="button" class="btn-agregar" onclick="agregarItem(this, 'Papas Locas Normales', 30)">Agregar al carrito</button>
+                </div>
+            </div>
+
+            <div class="producto-item">
+                <h4>Papas Locas Especiales ($45)</h4>
+                
+                <div class="opciones">
+                    <label>Sabor de Papas:</label>
+                    <select class="opcion-detalle">
+                        <option value="Naturales">Naturales</option>
+                        <option value="Limón">Limón</option>
+                        <option value="Queso">Queso</option>
+                        <option value="Extremas">Extremas</option>
+                    </select>
+
+                    <label>Ingredientes (selecciona los que desees):</label>
+                    <div class="grupo-checkbox">
+                        <label><input type="checkbox" class="opcion-check" value="Salsa Maggi"> Salsa Maggi</label>
+                        <label><input type="checkbox" class="opcion-check" value="Limón"> Limón</label>
+                        <label><input type="checkbox" class="opcion-check" value="Tajín"> Tajín</label>
+                        <label><input type="checkbox" class="opcion-check" value="Cueritos"> Cueritos</label>
+                    </div>
+
+                    <label>Cacahuates:</label>
+                    <select class="opcion-detalle">
+                        <option value="Japonés">Japonés</option>
+                        <option value="Flamin Hot">Flamin Hot</option>
+                        <option value="Sin Cacahuates">Sin Cacahuates</option>
+                    </select>
+
+                    <label>Salsa a elegir:</label>
+                    <select class="opcion-detalle">
+                        <option value="Valentina">Valentina</option>
+                        <option value="Botanera">Botanera</option>
+                        <option value="Ambas Salsas">Ambas Salsas</option>
+                        <option value="Sin Salsa">Sin Salsa</option>
+                    </select>
+
+                    <label>Cantidad:</label>
+                    <input type="number" class="cantidad-producto" value="1" min="1">
+                    
+                    <button type="button" class="btn-agregar" onclick="agregarItem(this, 'Papas Locas Especiales', 45)">Agregar al carrito</button>
+                </div>
+            </div>
+            
+        </div>
+<button class="btn-categoria">Gomitas</button>
+        <div class="panel-categoria">
+            
+            <div class="producto-item">
+                <h4>Gomitas Preparadas ($20)</h4>
+                
+                <div class="opciones">
+                    <label>Tipo de Gomita (selecciona las que desees):</label>
+                    <div class="grupo-checkbox">
+                        <label><input type="checkbox" class="opcion-check" value="Panditas"> Panditas</label>
+                        <label><input type="checkbox" class="opcion-check" value="Panditas Enchiladas"> Panditas Enchiladas</label>
+                        <label><input type="checkbox" class="opcion-check" value="Gusanitos"> Gusanitos</label>
+                        <label><input type="checkbox" class="opcion-check" value="Aros de Durazno"> Aros de Durazno</label>
+                        <label><input type="checkbox" class="opcion-check" value="Frutitas"> Frutitas</label>
+                    </div>
+
+                    <label>Preparación (selecciona lo que desees):</label>
+                    <div class="grupo-checkbox">
+                        <label><input type="checkbox" class="opcion-check" value="Chamoy"> Chamoy</label>
+                        <label><input type="checkbox" class="opcion-check" value="Tajín"> Tajín</label>
+                    </div>
+
+                    <label>Miguelito:</label>
+                    <select class="opcion-detalle">
+                        <option value="Original">Original</option>
+                        <option value="Mora Azul">Mora Azul</option>
+                        <option value="Sandía">Sandía</option>
+                        <option value="Uva">Uva</option>
+                        <option value="Mango">Mango</option>
+                        <option value="Limón">Limón</option>
+                        <option value="Sin Miguelito">Sin Miguelito</option>
+                    </select>
+
+                    <label>Cantidad:</label>
+                    <input type="number" class="cantidad-producto" value="1" min="1">
+                    
+                    <button type="button" class="btn-agregar" onclick="agregarItem(this, 'Gomitas Preparadas', 20)">Agregar al carrito</button>
+                </div>
+            </div>
+
+        </div>
+    <button class="btn-categoria">Congelados</button>
+        <div class="panel-categoria">
+            
+            <div class="producto-item">
+                <h4>Gomi Boing ($25)</h4>
+                
+                <div class="opciones">
+                    <label>Sabor de Boing:</label>
+                    <select class="opcion-detalle">
+                        <option value="Mango">Mango</option>
+                        <option value="Manzana">Manzana</option>
+                        <option value="Uva">Uva</option>
+                        <option value="Guayaba">Guayaba</option>
+                        <option value="Fresa">Fresa</option>
+                    </select>
+
+                    <label>Gomitas (selecciona las que desees):</label>
+                    <div class="grupo-checkbox">
+                        <label><input type="checkbox" class="opcion-check" value="Panditas"> Panditas</label>
+                        <label><input type="checkbox" class="opcion-check" value="Panditas Enchiladas"> Panditas Enchiladas</label>
+                        <label><input type="checkbox" class="opcion-check" value="Gusanitos"> Gusanitos</label>
+                        <label><input type="checkbox" class="opcion-check" value="Aros de Durazno"> Aros de Durazno</label>
+                        <label><input type="checkbox" class="opcion-check" value="Frutitas"> Frutitas</label>
+                    </div>
+
+                    <label>Miguelito:</label>
+                    <select class="opcion-detalle">
+                        <option value="Original">Original</option>
+                        <option value="Mora Azul">Mora Azul</option>
+                        <option value="Sandía">Sandía</option>
+                        <option value="Uva">Uva</option>
+                        <option value="Mango">Mango</option>
+                        <option value="Limón">Limón</option>
+                        <option value="Sin Miguelito">Sin Miguelito</option>
+                    </select>
+
+                    <label>Cantidad:</label>
+                    <input type="number" class="cantidad-producto" value="1" min="1">
+                    
+                    <button type="button" class="btn-agregar" onclick="agregarItem(this, 'Gomi Boing', 25)">Agregar al carrito</button>
+                </div>
+            </div>
+
+            <div class="producto-item">
+                <h4>Fresas Congeladas ($45)</h4>
+                
+                <div class="opciones">
+                    <label>Base (selecciona lo que desees):</label>
+                    <div class="grupo-checkbox">
+                        <label><input type="checkbox" class="opcion-check" value="Crema"> Crema</label>
+                        <label><input type="checkbox" class="opcion-check" value="Chantilly"> Chantilly</label>
+                    </div>
+
+                    <label>Líquido:</label>
+                    <select class="opcion-detalle">
+                        <option value="Lechera">Lechera</option>
+                        <option value="Hershey's">Hershey's</option>
+                        <option value="Dulce de Leche">Dulce de Leche</option>
+                        <option value="Sin Líquido">Sin Líquido</option>
+                    </select>
+
+                    <label>Topping:</label>
+                    <select class="opcion-detalle">
+                        <option value="Chispas Turín">Chispas Turín</option>
+                        <option value="Lunetas">Lunetas</option>
+                        <option value="Oreo">Oreo</option>
+                        <option value="Bombones">Bombones</option>
+                        <option value="Chispas BiColor">Chispas BiColor</option>
+                        <option value="Nuez">Nuez</option>
+                        <option value="Sin Topping">Sin Topping</option>
+                    </select>
+
+                    <label>Cantidad:</label>
+                    <input type="number" class="cantidad-producto" value="1" min="1">
+                    
+                    <button type="button" class="btn-agregar" onclick="agregarItem(this, 'Fresas Congeladas', 45)">Agregar al carrito</button>
+                </div>
+            </div>
+
+            <div class="producto-item">
+                <h4>Bolis ICEE ($10)</h4>
+                <p style="font-size: 0.85em; margin: 0 0 10px 0;">Promoción: 2 x $15 (se ajustará al momento del pago si llevas 2)</p>
+                <div class="opciones">
+                    <label>Sabor:</label>
+                    <select class="opcion-detalle">
+                        <option value="Cereza">Cereza</option>
+                        <option value="Mora">Mora</option>
+                    </select>
+
+                    <label>Cantidad:</label>
+                    <input type="number" class="cantidad-producto" value="1" min="1">
+                    
+                    <button type="button" class="btn-agregar" onclick="agregarItem(this, 'Bolis ICEE', 10)">Agregar al carrito</button>
+                </div>
+            </div>
+
+        </div>
+        <button class="btn-categoria">Cueritos</button>
+        <div class="panel-categoria">
+            
+            <div class="producto-item">
+                <h4>Cueritos Preparados</h4>
+                
+                <div class="opciones">
+                    <label>Tamaño:</label>
+                    <select class="opcion-detalle">
+                        <option value="Chico" data-precio="15">Chico ($15)</option>
+                        <option value="Grande" data-precio="25">Grande ($25)</option>
+                    </select>
+
+                    <label>Ingredientes (selecciona los que desees):</label>
+                    <div class="grupo-checkbox">
+                        <label><input type="checkbox" class="opcion-check" value="Limón"> Limón</label>
+                        <label><input type="checkbox" class="opcion-check" value="Sal"> Sal</label>
+                        <label><input type="checkbox" class="opcion-check" value="Tajín"> Tajín</label>
+                    </div>
+
+                    <label>Cacahuates a elegir:</label>
+                    <select class="opcion-detalle">
+                        <option value="Japonés">Japonés</option>
+                        <option value="Flamin Hot">Flamin Hot</option>
+                        <option value="Sin Cacahuates">Sin Cacahuates</option>
+                    </select>
+
+                    <label>Salsa a elegir:</label>
+                    <select class="opcion-detalle">
+                        <option value="Valentina">Valentina</option>
+                        <option value="Botanera">Botanera</option>
+                        <option value="Ambas Salsas">Ambas Salsas</option>
+                        <option value="Sin Salsa">Sin Salsa</option>
+                    </select>
+
+                    <label>Cantidad:</label>
+                    <input type="number" class="cantidad-producto" value="1" min="1">
+                    
+                    <button type="button" class="btn-agregar" onclick="agregarItem(this, 'Cueritos Preparados', 0)">Agregar al carrito</button>
+                </div>
+            </div>
+
+        </div>
+      <button class="btn-categoria">Palomitas</button>
+        <div class="panel-categoria">
+            
+            <div class="producto-item">
+                <h4>Palomitas de Máquina ($10)</h4>
+                
+                <div class="opciones">
+                    <label>Sabor:</label>
+                    <select class="opcion-detalle">
+                        <option value="Mantequilla">Mantequilla</option>
+                        <option value="Naturales">Naturales</option>
+                    </select>
+
+                    <label>Salsa a elegir:</label>
+                    <select class="opcion-detalle">
+                        <option value="Valentina">Valentina</option>
+                        <option value="Botanera">Botanera</option>
+                        <option value="Ambas Salsas">Ambas Salsas</option>
+                        <option value="Sin Salsa">Sin Salsa</option>
+                    </select>
+
+                    <label>Cantidad:</label>
+                    <input type="number" class="cantidad-producto" value="1" min="1">
+                    
+                    <button type="button" class="btn-agregar" onclick="agregarItem(this, 'Palomitas de Máquina', 10)">Agregar al carrito</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="carrito-flotante" id="abrir-carrito">
+        🛒 <span id="contador-carrito">0</span>
+    </div>
+
+    <div id="toast-notificacion" class="toast">Producto agregado a tu pedido</div>
+<div id="modal-carrito" class="modal">
+    <div class="modal-contenido">
+        <div class="encabezado">
+            <img src="logo.jpeg" alt="Logo D'Vine" class="logo">
+            <h1>D'Vine</h1>
+        </div>
+
+        <h2 style="text-align: center; border-bottom: 1px solid; padding-bottom: 10px; margin-top: 20px;">Tu Pedido</h2>
+        
+        <div id="lista-carrito">
+            </div>
+        
+        <h3 style="text-align:right; margin-bottom: 30px;">Total: $<span id="total-pedido">0</span></h3>
+        
+        <button type="button" class="btn-regresar" id="btn-regresar-menu">← AÑADIR MÁS PRODUCTOS</button>
+        
+        <button type="button" class="btn-enviar-final" onclick="enviarPedido()">ENVIAR PEDIDO POR WHATSAPP</button>
+    </div>
+</div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor-principal {
+    max-width: 600px;
+    width: 100%;
+}
+
+/* ENCABEZADO */
+.encabezado {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid transparent; /* Separador sutil si se requiere */
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.encabezado h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+.encabezado h2 {
+    font-size: 1em;
+    font-weight: normal;
+    margin: 5px 0 0 0;
+}
+
+/* CATEGORÍAS */
+.titulo-categorias {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* BOTONES PRINCIPALES (Como en tu imagen) */
+.btn-categoria {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid;
+    background: transparent;
+    font-size: 1em;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0; /* Bordes totalmente cuadrados */
+}
+
+/* PANEL DESPLEGABLE */
+.panel-categoria {
+    display: none;
+    padding: 15px;
+    border: 1px solid;
+    border-top: none;
+    margin-top: -15px; /* Para que se pegue al botón de arriba */
+    margin-bottom: 15px;
+}
+
+.producto-item {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed;
+}
+
+.producto-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.opciones {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.opcion-detalle, .cantidad-producto {
+    padding: 10px;
+    border: 1px solid;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.btn-agregar {
+    padding: 12px;
+    margin-top: 10px;
+    border: 1px solid;
+    background: transparent;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* CARRITO FLOTANTE (Cuadrado como en tu imagen) */
+.carrito-flotante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: 1px solid;
+    padding: 15px 20px;
+    font-size: 1.2em;
+    background: transparent;
+    cursor: pointer;
+}
+
+/* NOTIFICACIÓN TOAST */
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    border: 1px solid;
+    padding: 15px;
+    text-align: center;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    bottom: 30px;
+    opacity: 0;
+    transition: opacity 0.5s, bottom 0.5s;
+}
+
+.toast.mostrar {
+    visibility: visible;
+    opacity: 1;
+    bottom: 80px;
+}
+
+/* ESTILOS PARA LOS CHECKBOXES DE INGREDIENTES */
+.grupo-checkbox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px;
+    border: 1px solid;
+    margin-bottom: 5px;
+}
+
+.grupo-checkbox label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+}
+
+.opcion-check {
+    margin: 0;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+
+/* VENTANA DEL CARRITO (MODAL) - DISEÑO FINAL */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff; /* Fondo blanco sólido */
+    overflow-y: auto;
+}
+
+.modal-contenido {
+    margin: 0 auto;
+    padding: 40px 20px;
+    width: 100%;
+    max-width: 500px;
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+/* Estilo de los botones del carrito */
+.btn-regresar {
+    width: 100%;
+    padding: 15px;
+    font-size: 1em;
+    border: 1px solid #000;
+    background: #fff;
+    cursor: pointer;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.btn-enviar-final {
+    width: 100%;
+    padding: 18px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border: none;
+    background: #000; /* Botón negro como en tu imagen */
+    color: #fff;      /* Letras blancas */
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+/* Para que los productos en la lista no se encimen */
+.item-carrito {
+    border-bottom: 1px solid #000;
+    padding: 15px 0;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
