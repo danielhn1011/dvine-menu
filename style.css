@@ -92,16 +92,29 @@ body {
     box-sizing: border-box;
 }
 
+/* --- ESTILOS DEL BOTÓN DE AGREGAR --- */
 .btn-agregar {
-    padding: 12px;
-    margin-top: 10px;
-    border: 1px solid;
-    background: transparent;
-    cursor: pointer;
+    background-color: #333333; /* Negro sólido y elegante que combina con D'Vine */
+    color: white;
+    padding: 15px;
+    font-size: 16px;
     font-weight: bold;
-    text-transform: uppercase;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%; 
+    margin-top: 15px;
+    
+    /* Animación de latido para llamar la atención */
+    animation: latido 2s infinite;
 }
 
+/* --- ANIMACIÓN DE LATIDO --- */
+@keyframes latido {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
 /* CARRITO FLOTANTE (Cuadrado como en tu imagen) */
 .carrito-flotante {
     position: fixed;

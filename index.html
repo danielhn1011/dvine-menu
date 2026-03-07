@@ -34,7 +34,7 @@
                         <option value="Pingüino" data-precio="50">Pingüino ($50)</option>
                         <option value="Chocorrol" data-precio="50">Chocorrol ($50)</option>
                     </select>
-                    <label>Cantidad:</label>
+                    <label>¿Cuántos Frappés de este sabor quieres?</label>
                     <input type="number" class="cantidad-producto" value="1" min="1">
                     <button type="button" class="btn-agregar" onclick="agregarItem(this, 'Frappé de Leche', 0)">Agregar al carrito</button>
                 </div>
@@ -51,7 +51,7 @@
                         <option value="ICEE Cereza" data-precio="50">ICEE Cereza ($50)</option>
                         <option value="ICEE Mora Azul" data-precio="50">ICEE Mora Azul ($50)</option>
                     </select>
-                    <label>Cantidad:</label>
+                    <label>¿Cuántos Frappés de este sabor quieres?</label>
                     <input type="number" class="cantidad-producto" value="1" min="1">
                     <button type="button" class="btn-agregar" onclick="agregarItem(this, 'Frappé de Agua', 0)">Agregar al carrito</button>
                 </div>
@@ -66,7 +66,7 @@
             <label>Tamaño:</label>
             <select class="opcion-detalle" id="select-tamano-dorilocos" onchange="actualizarSaboresDorilocos()">
                 <option value="Chico" data-precio="30">Chico ($30)</option>
-                <option value="Mediano" data-precio="40">Mediano ($40)</option>
+                <option value="Mediano" data-precio="40">Mediano ($35)</option>
             </select>
 
             <label>Fritura Base:</label>
@@ -118,7 +118,7 @@
                 <option value="Sin Salsa">Sin Salsa</option>
             </select>
 
-            <label>Cantidad:</label>
+            <label>¿Cuántos Dorilocos con esta preparación quieres?</label>
             <input type="number" class="cantidad-producto" value="1" min="1">
             
             <button type="button" class="btn-agregar" onclick="agregarItem(this, 'Dorilocos', 0)">Agregar al carrito</button>
@@ -155,7 +155,7 @@
                         <option value="Sin Salsa">Sin Salsa</option>
                     </select>
 
-                    <label>Cantidad:</label>
+                    <label>¿Cuántas Papas Locas iguales quieres?</label>
                     <input type="number" class="cantidad-producto" value="1" min="1">
                     
                     <button type="button" class="btn-agregar" onclick="agregarItem(this, 'Papas Locas Normales', 30)">Agregar al carrito</button>
@@ -197,7 +197,7 @@
                         <option value="Sin Salsa">Sin Salsa</option>
                     </select>
 
-                    <label>Cantidad:</label>
+                    <label>¿Cuántas Papas Locas iguales quieres?</label>
                     <input type="number" class="cantidad-producto" value="1" min="1">
                     
                     <button type="button" class="btn-agregar" onclick="agregarItem(this, 'Papas Locas Especiales', 45)">Agregar al carrito</button>
@@ -238,7 +238,7 @@
                         <option value="Sin Miguelito">Sin Miguelito</option>
                     </select>
 
-                    <label>Cantidad:</label>
+                    <label>¿Cuántas órdenes de Gomitas así quieres?</label>
                     <input type="number" class="cantidad-producto" value="1" min="1">
                     
                     <button type="button" class="btn-agregar" onclick="agregarItem(this, 'Gomitas Preparadas', 20)">Agregar al carrito</button>
@@ -282,7 +282,7 @@
                         <option value="Sin Miguelito">Sin Miguelito</option>
                     </select>
 
-                    <label>Cantidad:</label>
+                    <label>¿Cuántos Gomi Boings iguales quieres?</label>
                     <input type="number" class="cantidad-producto" value="1" min="1">
                     
                     <button type="button" class="btn-agregar" onclick="agregarItem(this, 'Gomi Boing', 25)">Agregar al carrito</button>
@@ -318,31 +318,28 @@
                         <option value="Sin Topping">Sin Topping</option>
                     </select>
 
-                    <label>Cantidad:</label>
+                  <label>¿Cuántas órdenes de Fresas así quieres?</label>
                     <input type="number" class="cantidad-producto" value="1" min="1">
                     
                     <button type="button" class="btn-agregar" onclick="agregarItem(this, 'Fresas Congeladas', 45)">Agregar al carrito</button>
                 </div>
             </div>
 
-            <div class="producto-item">
-                <h4>Bolis ICEE ($10)</h4>
-                <p style="font-size: 0.85em; margin: 0 0 10px 0;">Promoción: 2 x $15 (se ajustará al momento del pago si llevas 2)</p>
-                <div class="opciones">
-                    <label>Sabor:</label>
-                    <select class="opcion-detalle">
-                        <option value="Cereza">Cereza</option>
-                        <option value="Mora">Mora</option>
-                    </select>
+           <div class="producto-item">
+    <h4>Bolis ($10 c/u o 2x$15)</h4>
+    <div class="opciones">
+        <label>Sabor:</label>
+        <select class="opcion-detalle">
+            <option value="Mora">Mora</option>
+            <option value="Cereza">Cereza</option>
+        </select>
 
-                    <label>Cantidad:</label>
-                    <input type="number" class="cantidad-producto" value="1" min="1">
-                    
-                    <button type="button" class="btn-agregar" onclick="agregarItem(this, 'Bolis ICEE', 10)">Agregar al carrito</button>
-                </div>
-            </div>
-
-        </div>
+        <label>¿Cuántos Bolis de este sabor quieres?</label>
+        <input type="number" class="cantidad-producto" value="1" min="1">
+        <button type="button" class="btn-agregar" onclick="agregarItem(this, 'Bolis', 10)">Agregar al carrito</button>
+    </div>
+</div>
+</div>
         <button class="btn-categoria">Cueritos</button>
         <div class="panel-categoria">
             
@@ -378,7 +375,7 @@
                         <option value="Sin Salsa">Sin Salsa</option>
                     </select>
 
-                    <label>Cantidad:</label>
+                  <label>¿Cuántos Cueritos con esta preparación quieres?</label>
                     <input type="number" class="cantidad-producto" value="1" min="1">
                     
                     <button type="button" class="btn-agregar" onclick="agregarItem(this, 'Cueritos Preparados', 0)">Agregar al carrito</button>
@@ -407,7 +404,7 @@
                         <option value="Sin Salsa">Sin Salsa</option>
                     </select>
 
-                    <label>Cantidad:</label>
+                    <label>¿Cuántas órdenes de Palomitas iguales quieres?</label>
                     <input type="number" class="cantidad-producto" value="1" min="1">
                     
                     <button type="button" class="btn-agregar" onclick="agregarItem(this, 'Palomitas de Máquina', 10)">Agregar al carrito</button>
@@ -434,6 +431,11 @@
         <div id="lista-carrito">
             </div>
         
+<div class="instrucciones-extra" style="margin: 15px 0; text-align: left;">
+            <label for="notas-pedido" style="display: block; font-weight: bold; margin-bottom: 5px; font-size: 14px;">📝 Instrucciones especiales (opcional):</label>
+            <textarea id="notas-pedido" placeholder="Ej. Poca salsa, servilletas extra, etc..." style="width: 100%; height: 60px; padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-family: inherit; resize: none;"></textarea>
+        </div>
+
         <h3 style="text-align:right; margin-bottom: 30px;">Total: $<span id="total-pedido">0</span></h3>
         
         <button type="button" class="btn-regresar" id="btn-regresar-menu">← AÑADIR MÁS PRODUCTOS</button>

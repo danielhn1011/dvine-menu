@@ -123,6 +123,7 @@ function actualizarVistaCarrito() {
     
     lista.innerHTML = '';
     let total = 0;
+    let cantidadBolis = 0; // <-- NUEVO: Variable para contar los bolis
 
     if (carrito.length === 0) {
         lista.innerHTML = '<p style="text-align:center;">Aún no has agregado productos.</p>';
@@ -132,6 +133,12 @@ function actualizarVistaCarrito() {
 
     carrito.forEach((item, index) => {
         total += item.precioTotal;
+        
+        // <-- NUEVO: Identificamos si es boli y lo sumamos
+        if (item.nombre === 'Bolis') {
+            cantidadBolis += item.cantidad;
+        }
+
         let div = document.createElement('div');
         div.className = 'item-carrito';
         div.innerHTML = `
@@ -144,9 +151,20 @@ function actualizarVistaCarrito() {
         lista.appendChild(div);
     });
 
+    // <-- NUEVO: Aplicamos la promoción de 2 Bolis por $15 (Descuento de $5 por par)
+    if (cantidadBolis >= 2) {
+        let paresBolis = Math.floor(cantidadBolis / 2);
+        let descuento = paresBolis * 5; 
+        total -= descuento;
+        
+        // Agregamos un texto visual para que el cliente sepa que ahorró
+        let divPromo = document.createElement('div');
+        divPromo.innerHTML = `<strong style="color: #28a745; text-align: center; display: block; margin-top: 10px;">¡Promo Bolis aplicada: -$${descuento}!</strong>`;
+        lista.appendChild(divPromo);
+    }
+
     totalSpan.innerText = total;
 }
-
 function eliminarItem(index) {
     carrito.splice(index, 1);
     actualizarVistaCarrito();
@@ -163,32 +181,48 @@ function enviarPedido() {
     }
 
     let mensaje = `Hola, quiero hacer el siguiente pedido:\n\n`;
-    
     let totalPagar = 0;
+    let cantidadBolis = 0; // <-- NUEVO: Contador para WhatsApp
 
     carrito.forEach(item => {
         totalPagar += item.precioTotal;
         
-        // Si pide más de uno, le agregamos el número (ej. 2x Dorilocos), si no, lo dejamos normal
-        let textoCantidad = item.cantidad > 1 ? `${item.cantidad}x ` : '';
+        // <-- NUEVO
+        if (item.nombre === 'Bolis') {
+            cantidadBolis += item.cantidad;
+        }
         
-        // Formato principal: • Dorilocos - $30
+        let textoCantidad = item.cantidad > 1 ? `${item.cantidad}x ` : '';
         mensaje += `  • ${textoCantidad}${item.nombre} - $${item.precioTotal}\n`;
         
-        // Formato de los detalles: - Base: Doritos
         item.detalles.forEach(detalle => {
             mensaje += `  - ${detalle}\n`;
         });
         
-        mensaje += `\n`; // Dejamos un espacio en blanco entre cada producto
+        mensaje += `\n`; 
     });
 
-    mensaje += `Total: $${totalPagar}`;
+    // <-- NUEVO: Restamos el descuento y te avisamos en WhatsApp
+    if (cantidadBolis >= 2) {
+        let paresBolis = Math.floor(cantidadBolis / 2);
+        let descuento = paresBolis * 5;
+        totalPagar -= descuento;
+        
+        mensaje += `🎁 *Promo Bolis Aplicada: -$${descuento}*\n\n`;
+    }
+
+// --- CÓDIGO DE NOTAS ---
+    let cajaNotas = document.getElementById('notas-pedido');
+    if (cajaNotas && cajaNotas.value.trim() !== "") {
+        mensaje += `📝 *Instrucciones especiales:*\n${cajaNotas.value.trim()}\n\n`;
+    }
+    // -----------------------
+
+    mensaje += `*Total: $${totalPagar}*`;
 
     let url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
     window.open(url, '_blank');
 }
-
 function actualizarSaboresDorilocos() {
     let tamano = document.getElementById("select-tamano-dorilocos").value;
     let selectSabor = document.getElementById("select-sabor-dorilocos");
