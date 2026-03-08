@@ -95,19 +95,26 @@ function actualizarContadorCarrito() {
 let modal = document.getElementById("modal-carrito");
 let btnAbrirCarrito = document.getElementById("abrir-carrito");
 let btnCerrarCarrito = document.getElementById("cerrar-carrito");
-// Agregamos esto a tu lógica de Modal
 let btnRegresar = document.getElementById("btn-regresar-menu");
 
-btnRegresar.onclick = function() {
-    modal.style.display = "none";
-}
-btnAbrirCarrito.onclick = function() {
-    modal.style.display = "block";
-    actualizarVistaCarrito();
+// Hacemos que los botones funcionen SOLO si existen en tu HTML
+if (btnRegresar) {
+    btnRegresar.onclick = function() {
+        modal.style.display = "none";
+    }
 }
 
-btnCerrarCarrito.onclick = function() {
-    modal.style.display = "none";
+if (btnAbrirCarrito) {
+    btnAbrirCarrito.onclick = function() {
+        modal.style.display = "block";
+        actualizarVistaCarrito();
+    }
+}
+
+if (btnCerrarCarrito) {
+    btnCerrarCarrito.onclick = function() {
+        modal.style.display = "none";
+    }
 }
 
 // Cierra la ventana si tocan fuera de ella
@@ -116,7 +123,6 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
-
 function actualizarVistaCarrito() {
     let lista = document.getElementById('lista-carrito');
     let totalSpan = document.getElementById('total-pedido');
@@ -246,5 +252,5 @@ function actualizarSaboresDorilocos() {
     });
 }
 
-// Llamamos a la función una vez al cargar la página para que el "Chico" ya tenga sus sabores puestos
+// Llamamos a la función al inicio para que llene los sabores por defecto
 actualizarSaboresDorilocos();
