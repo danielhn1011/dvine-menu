@@ -179,7 +179,7 @@ function eliminarItem(index) {
 
 // 4. LÓGICA FINAL DE WHATSAPP
 function enviarPedido() {
-    let telefono = "525656959816"; 
+    let telefono = "525623894736"; 
     
     if (carrito.length === 0) {
         alert("Tu carrito está vacío. Añade productos al pedido primero.");
